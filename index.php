@@ -25,7 +25,7 @@
     <!-- MAIN -->
     <main class="flex w-full gap-3 p-3">
 
-        <!-- SECTION GAUCHE : PLAYLIST -->
+        <!-- SECTION GAUCHE  -->
         <section class="bg-[#242320] w-[300px] rounded-3xl p-3">
 
             <h2 class="text-white text-xl font-bold mb-5">
@@ -86,7 +86,7 @@
 
         </section>
 
-        <!-- SECTION DROITE : HOME -->
+        <!-- SECTION DROITE  HOME -->
         <section id="home" class="bg-[#242320] flex-1 min-w-0 rounded-3xl p-5">
 
             <h1 class="text-white text-4xl font-bold">
