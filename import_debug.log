@@ -1,0 +1,462 @@
+2026-10-27 09:46:16 - === Nouvelle requête reçue ===
+2026-10-27 09:46:16 - Méthode: POST
+2026-10-27 09:46:16 - FILES: Array
+(
+    [cover] => Array
+        (
+            [name] => 03.jpg
+            [full_path] => 03.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\wamp64\tmp\phpF195.tmp
+            [error] => 0
+            [size] => 42945
+        )
+
+    [audio] => Array
+        (
+            [name] => Doigby - GUERRIER (clip officiel) - (320 Kbps).mp3
+            [full_path] => Doigby - GUERRIER (clip officiel) - (320 Kbps).mp3
+            [type] => audio/mpeg
+            [tmp_name] => C:\wamp64\tmp\phpF196.tmp
+            [error] => 0
+            [size] => 7018442
+        )
+
+)
+
+2026-10-27 09:46:16 - POST: Array
+(
+    [title] => Doigby - GUERRIER (clip officiel) - (320 Kbps)
+    [artist] => doigby
+)
+
+2026-10-27 09:50:16 - === Nouvelle requête reçue ===
+2026-10-27 09:50:16 - Méthode: POST
+2026-10-27 09:50:16 - FILES: Array
+(
+    [cover] => Array
+        (
+            [name] => 06.jpg
+            [full_path] => 06.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\wamp64\tmp\php9991.tmp
+            [error] => 0
+            [size] => 54038
+        )
+
+    [audio] => Array
+        (
+            [name] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps).mp3
+            [full_path] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps).mp3
+            [type] => audio/mpeg
+            [tmp_name] => C:\wamp64\tmp\php9992.tmp
+            [error] => 0
+            [size] => 8072794
+        )
+
+)
+
+2026-10-27 09:50:16 - POST: Array
+(
+    [title] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps)
+    [artist] => ziak
+)
+
+2026-10-27 09:50:16 - ERREUR (HTTP 400): Le fichier audio doit être un MP3 valide.
+2026-10-27 09:50:26 - === Nouvelle requête reçue ===
+2026-10-27 09:50:26 - Méthode: POST
+2026-10-27 09:50:26 - FILES: Array
+(
+    [cover] => Array
+        (
+            [name] => 06.jpg
+            [full_path] => 06.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\wamp64\tmp\phpC3C0.tmp
+            [error] => 0
+            [size] => 54038
+        )
+
+    [audio] => Array
+        (
+            [name] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps).mp3
+            [full_path] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps).mp3
+            [type] => audio/mpeg
+            [tmp_name] => C:\wamp64\tmp\phpC3C1.tmp
+            [error] => 0
+            [size] => 8072794
+        )
+
+)
+
+2026-10-27 09:50:26 - POST: Array
+(
+    [title] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps)
+    [artist] => ziak
+)
+
+2026-10-27 09:50:27 - ERREUR (HTTP 400): Le fichier audio doit être un MP3 valide.
+2026-10-27 09:50:27 - === Nouvelle requête reçue ===
+2026-10-27 09:50:27 - Méthode: POST
+2026-10-27 09:50:27 - FILES: Array
+(
+    [cover] => Array
+        (
+            [name] => 06.jpg
+            [full_path] => 06.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\wamp64\tmp\phpC5C5.tmp
+            [error] => 0
+            [size] => 54038
+        )
+
+    [audio] => Array
+        (
+            [name] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps).mp3
+            [full_path] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps).mp3
+            [type] => audio/mpeg
+            [tmp_name] => C:\wamp64\tmp\phpC5C6.tmp
+            [error] => 0
+            [size] => 8072794
+        )
+
+)
+
+2026-10-27 09:50:27 - POST: Array
+(
+    [title] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps)
+    [artist] => ziak
+)
+
+2026-10-27 09:50:27 - ERREUR (HTTP 400): Le fichier audio doit être un MP3 valide.
+2026-10-27 09:50:27 - === Nouvelle requête reçue ===
+2026-10-27 09:50:27 - Méthode: POST
+2026-10-27 09:50:27 - FILES: Array
+(
+    [cover] => Array
+        (
+            [name] => 06.jpg
+            [full_path] => 06.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\wamp64\tmp\phpC664.tmp
+            [error] => 0
+            [size] => 54038
+        )
+
+    [audio] => Array
+        (
+            [name] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps).mp3
+            [full_path] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps).mp3
+            [type] => audio/mpeg
+            [tmp_name] => C:\wamp64\tmp\phpC665.tmp
+            [error] => 0
+            [size] => 8072794
+        )
+
+)
+
+2026-10-27 09:50:27 - POST: Array
+(
+    [title] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps)
+    [artist] => ziak
+)
+
+2026-10-27 09:50:27 - ERREUR (HTTP 400): Le fichier audio doit être un MP3 valide.
+2026-10-27 09:50:27 - === Nouvelle requête reçue ===
+2026-10-27 09:50:27 - Méthode: POST
+2026-10-27 09:50:27 - FILES: Array
+(
+    [cover] => Array
+        (
+            [name] => 06.jpg
+            [full_path] => 06.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\wamp64\tmp\phpC711.tmp
+            [error] => 0
+            [size] => 54038
+        )
+
+    [audio] => Array
+        (
+            [name] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps).mp3
+            [full_path] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps).mp3
+            [type] => audio/mpeg
+            [tmp_name] => C:\wamp64\tmp\phpC712.tmp
+            [error] => 0
+            [size] => 8072794
+        )
+
+)
+
+2026-10-27 09:50:27 - POST: Array
+(
+    [title] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps)
+    [artist] => ziak
+)
+
+2026-10-27 09:50:27 - ERREUR (HTTP 400): Le fichier audio doit être un MP3 valide.
+2026-10-27 09:50:28 - === Nouvelle requête reçue ===
+2026-10-27 09:50:28 - Méthode: POST
+2026-10-27 09:50:28 - FILES: Array
+(
+    [cover] => Array
+        (
+            [name] => 06.jpg
+            [full_path] => 06.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\wamp64\tmp\phpC7CF.tmp
+            [error] => 0
+            [size] => 54038
+        )
+
+    [audio] => Array
+        (
+            [name] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps).mp3
+            [full_path] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps).mp3
+            [type] => audio/mpeg
+            [tmp_name] => C:\wamp64\tmp\phpC7D0.tmp
+            [error] => 0
+            [size] => 8072794
+        )
+
+)
+
+2026-10-27 09:50:28 - POST: Array
+(
+    [title] => Ziak - I WILL SURVIVE  (Disco Remix) - (320 Kbps)
+    [artist] => ziak
+)
+
+2026-10-27 09:50:28 - ERREUR (HTTP 400): Le fichier audio doit être un MP3 valide.
+2026-10-27 09:50:39 - === Nouvelle requête reçue ===
+2026-10-27 09:50:39 - Méthode: POST
+2026-10-27 09:50:39 - FILES: Array
+(
+    [cover] => Array
+        (
+            [name] => 06.jpg
+            [full_path] => 06.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\wamp64\tmp\phpF430.tmp
+            [error] => 0
+            [size] => 54038
+        )
+
+    [audio] => Array
+        (
+            [name] => Kaaris x VIDEO CLUB - ROI DE SEVRAN - (320 Kbps).mp3
+            [full_path] => Kaaris x VIDEO CLUB - ROI DE SEVRAN - (320 Kbps).mp3
+            [type] => audio/mpeg
+            [tmp_name] => C:\wamp64\tmp\phpF431.tmp
+            [error] => 0
+            [size] => 8510453
+        )
+
+)
+
+2026-10-27 09:50:39 - POST: Array
+(
+    [title] => kaaris
+    [artist] => kaaris
+)
+
+2026-10-27 10:00:31 - === Nouvelle requête reçue ===
+2026-10-27 10:00:31 - Méthode: POST
+2026-10-27 10:00:31 - FILES: Array
+(
+    [cover] => Array
+        (
+            [name] => 01.jpg
+            [full_path] => 01.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\wamp64\tmp\phpFCA3.tmp
+            [error] => 0
+            [size] => 104164
+        )
+
+    [audio] => Array
+        (
+            [name] => test.mp3
+            [full_path] => test.mp3
+            [type] => audio/mpeg
+            [tmp_name] => C:\wamp64\tmp\phpFCA4.tmp
+            [error] => 0
+            [size] => 6223482
+        )
+
+)
+
+2026-10-27 10:00:31 - POST: Array
+(
+    [album_id] => 1
+    [title] => Test Song
+    [artist] => Test Artist
+)
+
+2026-10-27 10:15:08 - === Nouvelle requête reçue ===
+2026-10-27 10:15:08 - Méthode: POST
+2026-10-27 10:15:08 - FILES: Array
+(
+    [cover] => Array
+        (
+            [name] => 03.jpg
+            [full_path] => 03.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\wamp64\tmp\php60BE.tmp
+            [error] => 0
+            [size] => 42945
+        )
+
+    [audio] => Array
+        (
+            [name] => Doigby - GUERRIER (clip officiel) - (320 Kbps).mp3
+            [full_path] => Doigby - GUERRIER (clip officiel) - (320 Kbps).mp3
+            [type] => audio/mpeg
+            [tmp_name] => C:\wamp64\tmp\php60BF.tmp
+            [error] => 0
+            [size] => 7018442
+        )
+
+)
+
+2026-10-27 10:15:08 - POST: Array
+(
+    [album_id] => 1
+    [title] => doig
+    [artist] => doig
+)
+
+2026-10-27 10:16:00 - === Nouvelle requête reçue ===
+2026-10-27 10:16:00 - Méthode: POST
+2026-10-27 10:16:00 - FILES: Array
+(
+    [cover] => Array
+        (
+            [name] => 04d0832487abd4867b3345f52362c6cd.jpg
+            [full_path] => 04d0832487abd4867b3345f52362c6cd.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\wamp64\tmp\php2B63.tmp
+            [error] => 0
+            [size] => 54038
+        )
+
+    [audio] => Array
+        (
+            [name] => CHUVA LENTA (Slowed) - ZETREX x CLASYXX x DJ Javi26 - (320 Kbps).mp3
+            [full_path] => CHUVA LENTA (Slowed) - ZETREX x CLASYXX x DJ Javi26 - (320 Kbps).mp3
+            [type] => audio/mpeg
+            [tmp_name] => C:\wamp64\tmp\php2B64.tmp
+            [error] => 0
+            [size] => 5432138
+        )
+
+)
+
+2026-10-27 10:16:00 - POST: Array
+(
+    [album_id] => 1
+    [title] => CHUVA LENTA (Slowed) - ZETREX x CLASYXX x DJ Javi26 - (320 Kbps)
+    [artist] => doigby
+)
+
+2026-10-27 10:16:00 - ERREUR (HTTP 400): Le fichier audio doit être un MP3 valide.
+2026-10-27 10:16:01 - === Nouvelle requête reçue ===
+2026-10-27 10:16:01 - Méthode: POST
+2026-10-27 10:16:01 - FILES: Array
+(
+    [cover] => Array
+        (
+            [name] => 04d0832487abd4867b3345f52362c6cd.jpg
+            [full_path] => 04d0832487abd4867b3345f52362c6cd.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\wamp64\tmp\php2FDA.tmp
+            [error] => 0
+            [size] => 54038
+        )
+
+    [audio] => Array
+        (
+            [name] => CHUVA LENTA (Slowed) - ZETREX x CLASYXX x DJ Javi26 - (320 Kbps).mp3
+            [full_path] => CHUVA LENTA (Slowed) - ZETREX x CLASYXX x DJ Javi26 - (320 Kbps).mp3
+            [type] => audio/mpeg
+            [tmp_name] => C:\wamp64\tmp\php2FDB.tmp
+            [error] => 0
+            [size] => 5432138
+        )
+
+)
+
+2026-10-27 10:16:01 - POST: Array
+(
+    [album_id] => 1
+    [title] => CHUVA LENTA (Slowed) - ZETREX x CLASYXX x DJ Javi26 - (320 Kbps)
+    [artist] => doigby
+)
+
+2026-10-27 10:16:01 - ERREUR (HTTP 400): Le fichier audio doit être un MP3 valide.
+2026-10-27 10:16:09 - === Nouvelle requête reçue ===
+2026-10-27 10:16:09 - Méthode: POST
+2026-10-27 10:16:09 - FILES: Array
+(
+    [cover] => Array
+        (
+            [name] => 04d0832487abd4867b3345f52362c6cd.jpg
+            [full_path] => 04d0832487abd4867b3345f52362c6cd.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\wamp64\tmp\php4CCA.tmp
+            [error] => 0
+            [size] => 54038
+        )
+
+    [audio] => Array
+        (
+            [name] => Kaaris x VIDEO CLUB - ROI DE SEVRAN - (320 Kbps).mp3
+            [full_path] => Kaaris x VIDEO CLUB - ROI DE SEVRAN - (320 Kbps).mp3
+            [type] => audio/mpeg
+            [tmp_name] => C:\wamp64\tmp\php4CCB.tmp
+            [error] => 0
+            [size] => 8510453
+        )
+
+)
+
+2026-10-27 10:16:09 - POST: Array
+(
+    [album_id] => 1
+    [title] => CHUVA LENTA (Slowed) - ZETREX x CLASYXX x DJ Javi26 - (320 Kbps)
+    [artist] => doigby
+)
+
+2026-10-27 10:50:38 - === Nouvelle requête reçue ===
+2026-10-27 10:50:38 - Méthode: POST
+2026-10-27 10:50:38 - FILES: Array
+(
+    [cover] => Array
+        (
+            [name] => 05.jpg
+            [full_path] => 05.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\wamp64\tmp\phpDED6.tmp
+            [error] => 0
+            [size] => 74435
+        )
+
+    [audio] => Array
+        (
+            [name] => Doigby - GUERRIER (clip officiel) - (320 Kbps).mp3
+            [full_path] => Doigby - GUERRIER (clip officiel) - (320 Kbps).mp3
+            [type] => audio/mpeg
+            [tmp_name] => C:\wamp64\tmp\phpDED7.tmp
+            [error] => 0
+            [size] => 7018442
+        )
+
+)
+
+2026-10-27 10:50:38 - POST: Array
+(
+    [album_id] => 7
+    [title] => dfjsef
+    [artist] => zefez
+)
+
