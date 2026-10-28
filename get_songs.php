@@ -2,7 +2,7 @@
 
 require_once "database.php";
 
-$sql = "SELECT songs.*, albums.artist, albums.cover_path
+$sql = "SELECT songs.*, albums.artist
         FROM songs
         JOIN albums ON songs.album_id = albums.id";
 

@@ -9,21 +9,26 @@
 
     <link rel="stylesheet" href="./src/output.css">
     <script src="./js/songs.js" defer></script>
+    <script src="./js/albums.js" defer></script>
+
 </head>
 
 <body class="flex flex-col bg-[#0D0D0C] min-h-screen">
 
-<audio id="lecteurAudio"></audio>
 
     <!-- HEADER -->
     <header>
-        <nav class="seach bg-[#0D0D0C] flex justify-center">
+        <nav class="seach bg-[#0D0D0C] flex  justify-center  p-4  relative"> 
+            <a href="import.php" class="text-white bg-[#242320] right-40 absolute mt-2 text-2xl px-5 h-14 rounded-3xl flex items-center justify-center border-[#D8B875] border-1 cursor-pointer hover:bg-[#34332F] transition border-1 border-transparent hover:border-[#D8B875] transition-colors duration-300">
+                Import
+            </a>
 
-            <div class="bg-[#242320] rounded-4xl p-5 w-full max-w-[800px] pt-4 mt-5 justify-center flex flex-col">
-                <img src="asset/chercher.svg" alt="search" class="size-7">
-            </div>
-
+            <div class="bg-[#242320] rounded-4xl p-5  w-full max-w-[800px] justify-center flex flex-col border-[#D8B875] border-0"> 
+                <img src="asset/chercher.svg" alt="search" class="size-7"> 
+            </div> 
         </nav>
+
+        
     </header>
 
     <!-- MAIN -->
@@ -36,71 +41,17 @@
                 Playlist
             </h2>
 
-            <div class="playlist p-2 bg-[#242320] w-full gap-2 flex flex-col rounded-2xl mb-3">
+            <div id="listeAlbums" class="playlist p-2 bg-[#242320] w-full gap-2 flex flex-col rounded-2xl mb-3">
 
                 <!-- ALBUM 1 -->
-                <div class="album px-3 flex items-center gap-4">
-                    <img src="asset/1600w-uVEn4XbC1Ew.webp" class="size-20 rounded-2xl" alt="Album">
-                    <h2 class="text-amber-50 font-bold">
-                        titre de l'album
-                    </h2>
-                </div>
-
-                <!-- ALBUM 2 -->
-                <div class="album px-3 flex items-center gap-4">
-                    <img src="asset/1600w-uVEn4XbC1Ew.webp" class="size-20 rounded-2xl" alt="Album">
-                    <h2 class="text-amber-50 font-bold">
-                        titre de l'album
-                    </h2>
-                </div>
-
-                <!-- ALBUM 3 -->
-                <div class="album px-3 flex items-center gap-4">
-                    <img src="asset/1600w-uVEn4XbC1Ew.webp" class="size-20 rounded-2xl" alt="Album">
-                    <h2 class="text-amber-50 font-bold">
-                        titre de l'album
-                    </h2>
-                </div>
-
-                <!-- ALBUM 4 -->
-                <div class="album px-3 flex items-center gap-4">
-                    <img src="asset/1600w-uVEn4XbC1Ew.webp" class="size-20 rounded-2xl" alt="Album">
-                    <h2 class="text-amber-50 font-bold">
-                        titre de l'album
-                    </h2>
-                </div>
-
-                <!-- ALBUM 5 -->
-                <div class="album px-3 flex items-center gap-4">
-                    <img src="asset/1600w-uVEn4XbC1Ew.webp" class="size-20 rounded-2xl" alt="Album">
-                    <h2 class="text-amber-50 font-bold">
-                        titre de l'album
-                    </h2>
-                </div>
-
-                <!-- ALBUM 6 -->
-                <div class="album px-3 flex items-center gap-4">
-                    <img src="asset/1600w-uVEn4XbC1Ew.webp" class="size-20 rounded-2xl" alt="Album">
-                    <h2 class="text-amber-50 font-bold">
-                        titre de l'album
-                    </h2>
-                </div>
-
-                <!-- ALBUM 7 -->
-                <div class="album px-3 flex items-center gap-4">
-                    <img src="asset/1600w-uVEn4XbC1Ew.webp" class="size-20 rounded-2xl" alt="Album">
-                    <h2 class="text-amber-50 font-bold">
-                        titre de l'album
-                    </h2>
-                </div>
-
-                <!-- ALBUM 8 -->
-                <div class="album px-3 flex items-center gap-4">
-                    <img src="asset/1600w-uVEn4XbC1Ew.webp" class="size-20 rounded-2xl" alt="Album">
-                    <h2 class="text-amber-50 font-bold">
-                        titre de l'album
-                    </h2>
-                </div>
+                 <template id = "modeleAlbum">
+                        <div class="album px-3 flex items-center gap-4 border-1 cursor-pointer hover:bg-[#34332F] transition border-1 border-transparent hover:border-[#D8B875] transition-colors duration-300 rounded-2xl ">
+                            <img src="asset/1600w-uVEn4XbC1Ew.webp" class="size-20 rounded-2xl" alt="Album">
+                            <h2 class="text-amber-50 font-bold">
+                                titre de l'album
+                            </h2>
+                        </div>   
+                </template>      
 
             </div>
 
@@ -148,12 +99,36 @@
 
     <!-- FOOTER / LECTEUR AUDIO -->
     <footer>
+        <section id="play" class="bg-[#0D0D0C] p-3">
 
-        <section id="play" class="bg-[#242320] p-5">
-            <div></div>
+            <div class="flex justify-center items-center">
+
+                <button id="boutonPlayPause">
+                    <img id="imagePlayPause"
+                        src="asset/jouer.svg"
+                        alt="Play / Pause"
+                        class="size-20 cursor-pointer">
+                </button>
+
+            </div>
+
+            <div class="flex justify-center items-center mt-4">
+
+                <input
+                    type="range"
+                    id="progression"
+                    min="0"
+                    max="100"
+                    value="0"
+                    class="w-[800px] accent-[#D8B875] cursor-pointer "
+                >
+
+            </div>
+
         </section>
-
+        <audio id="lecteurAudio"></audio>
     </footer>
+
 
 </body>
 
