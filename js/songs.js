@@ -5,14 +5,43 @@ const lecteurAudio = document.getElementById("lecteurAudio");
 const boutonPlayPause = document.getElementById("boutonPlayPause");
 const imagePlayPause = document.getElementById("imagePlayPause");
 const progression = document.getElementById("progression");
+const boutonPrecedent = document.getElementById("previous");
+const boutonSuivant = document.getElementById("next");
+const volumeSlider = document.getElementById("volume");
+
+// === GESTION DU VOLUME ===
+if (volumeSlider) {
+    volumeSlider.addEventListener("input", () => {
+        lecteurAudio.volume = volumeSlider.value / 100;
+    });
+}
+
+// === NAVIGATION ENTRE LES MORCEAUX ===
+function morceauSuivant() {
+    if (musiques.length === 0) return;
+    indexActuel = (indexActuel + 1) % musiques.length;
+    lecteurAudio.src = musiques[indexActuel].file_path;
+    lecteurAudio.play();
+}
+function morceauPrecedent() {
+    if (musiques.length === 0) return;
+    indexActuel = (indexActuel - 1 + musiques.length) % musiques.length;
+    lecteurAudio.src = musiques[indexActuel].file_path;
+    lecteurAudio.play();
+}
+if (boutonPrecedent) boutonPrecedent.addEventListener("click", morceauPrecedent);
+if (boutonSuivant) boutonSuivant.addEventListener("click", morceauSuivant);
+
+let musiques = [];
+let indexActuel = 0;
 
 fetch("get_songs.php")
     .then(response => response.json())
     .then(data => {
-
+        musiques = data;
         listeMusiques.innerHTML = "";
 
-        data.forEach(musique => {
+        data.forEach((musique, index) => {
 
             // On copie notre carte
             const carte = modeleMusique.content.firstElementChild.cloneNode(true);
@@ -25,12 +54,10 @@ fetch("get_songs.php")
             carte.querySelector("p").textContent = musique.artist;
 
             carte.addEventListener("click", () => {
-
-    lecteurAudio.src = musique.file_path;
-
-    lecteurAudio.play();
-
-});
+                indexActuel = index;
+                lecteurAudio.src = musique.file_path;
+                lecteurAudio.play();
+            });
             listeMusiques.appendChild(carte);
 
         });

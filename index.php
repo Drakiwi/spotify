@@ -116,7 +116,7 @@
 
     <!-- FOOTER / LECTEUR AUDIO -->
     <footer>
-        <section id="play" class="bg-[#0D0D0C] p-3">
+        <section id="play" class="bg-[#0D0D0C] p-3 relative">
 
             <div class="flex justify-center items-center gap-6">
 
@@ -151,6 +151,11 @@
                     class="w-[800px] accent-[#D8B875] cursor-pointer "
                 >
 
+            </div>
+
+            <div style="position:fixed;right:24px;bottom:45px;display:flex;align-items:center;gap:8px;z-index:50;">
+                <img src="asset/icons/volume.svg" alt="Volume" class="size-6">
+                <input type="range" id="volume" min="0" max="100" value="100" class="w-[120px] accent-[#D8B875] cursor-pointer">
             </div>
 
         </section>
