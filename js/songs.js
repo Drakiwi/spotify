@@ -5,26 +5,11 @@ const lecteurAudio = document.getElementById("lecteurAudio");
 const boutonPlayPause = document.getElementById("boutonPlayPause");
 const imagePlayPause = document.getElementById("imagePlayPause");
 const progression = document.getElementById("progression");
-const boutonNext = document.getElementById("next");
-const boutonPrevious = document.getElementById("previous");
-
-let listeLecture = [];
-let musiqueActuelle = 0;
-
-function jouerMusique(index) {
-
-    musiqueActuelle = index;
-
-    lecteurAudio.src = listeLecture[musiqueActuelle].file_path;
-
-    lecteurAudio.play();
-
-}
 
 fetch("get_songs.php")
     .then(response => response.json())
     .then(data => {
-
+        musiques = data;
         listeMusiques.innerHTML = "";
 
         data.forEach((musique, index) => {
@@ -39,13 +24,13 @@ fetch("get_songs.php")
 
             carte.querySelector("p").textContent = musique.artist;
 
-           carte.addEventListener("click", () => {
+            carte.addEventListener("click", () => {
 
-                listeLecture = data;
+    lecteurAudio.src = musique.file_path;
 
-                jouerMusique(index);
+    lecteurAudio.play();
 
-            });
+});
             listeMusiques.appendChild(carte);
 
         });
