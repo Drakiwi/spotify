@@ -53,6 +53,17 @@
                                 class="w-full cursor-pointer rounded-lg bg-[#0D0D0C] p-3 text-sm text-gray-400 file:mr-4 file:cursor-pointer file:rounded-lg file:border-0 file:bg-[#D8B875] file:px-4 file:py-2 file:font-bold file:text-black hover:file:bg-[#D8B875]/80">
                         </label>
 
+                        <label class="flex flex-col gap-2 text-sm font-medium text-gray-300">
+                            Couleur du dégradé
+                            <input
+                                type="color"
+                                name="gradient_color"
+                                id="couleurAlbum"
+                                value="#5C4A2B"
+                                class="w-20 h-12 cursor-pointer"
+                            >
+                        </label>
+
                         <p id="statutAlbum" role="status" aria-live="polite"></p>
 
                         <div class="flex justify-end gap-3">

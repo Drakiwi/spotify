@@ -40,6 +40,8 @@ fetch("get_albums.php")
 
                 // Afficher le titre de l'album
                 titreAlbum.textContent = album.title;
+                // Changer le dégradé selon la couleur de l'album
+               pageAlbum.style.background = "linear-gradient(to bottom, " + album.gradient_color + " 0%, #242320 20%, #242320 100%)";
 
                 // Afficher les musiques de cet album
                 afficherMusiquesAlbum(album.id);

@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 // Récupérer le titre et l'artiste
 $title = trim($_POST["title"] ?? "");
 $artist = trim($_POST["artist"] ?? "");
+$gradientColor = $_POST["gradient_color"];
 
 
 // Vérifier que les champs sont remplis
@@ -125,15 +126,16 @@ if (!move_uploaded_file($_FILES["cover"]["tmp_name"], $dossier . $nomImage)) {
 // Ajouter l'album dans MySQL
 try {
 
-    $sql = "INSERT INTO albums (title, artist, cover_path)
-            VALUES (:title, :artist, :cover_path)";
+    $sql = "INSERT INTO albums (title, artist, cover_path,gradient_color)
+            VALUES (:title, :artist, :cover_path, :gradient_color)";
 
     $request = $pdo->prepare($sql);
 
     $request->execute([
         "title" => $title,
         "artist" => $artist,
-        "cover_path" => $cover_path
+        "cover_path" => $cover_path,
+        "gradient_color" => $gradientColor
     ]);
 
     echo json_encode([
