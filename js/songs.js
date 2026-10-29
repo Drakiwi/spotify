@@ -5,6 +5,21 @@ const lecteurAudio = document.getElementById("lecteurAudio");
 const boutonPlayPause = document.getElementById("boutonPlayPause");
 const imagePlayPause = document.getElementById("imagePlayPause");
 const progression = document.getElementById("progression");
+const boutonNext = document.getElementById("next");
+const boutonPrevious = document.getElementById("previous");
+
+let listeLecture = [];
+let musiqueActuelle = 0;
+
+function jouerMusique(index) {
+
+    musiqueActuelle = index;
+
+    lecteurAudio.src = listeLecture[musiqueActuelle].file_path;
+
+    lecteurAudio.play();
+
+}
 
 fetch("get_songs.php")
     .then(response => response.json())
@@ -12,7 +27,7 @@ fetch("get_songs.php")
 
         listeMusiques.innerHTML = "";
 
-        data.forEach(musique => {
+        data.forEach((musique, index) => {
 
             // On copie notre carte
             const carte = modeleMusique.content.firstElementChild.cloneNode(true);
@@ -24,13 +39,13 @@ fetch("get_songs.php")
 
             carte.querySelector("p").textContent = musique.artist;
 
-            carte.addEventListener("click", () => {
+           carte.addEventListener("click", () => {
 
-    lecteurAudio.src = musique.file_path;
+                listeLecture = data;
 
-    lecteurAudio.play();
+                jouerMusique(index);
 
-});
+            });
             listeMusiques.appendChild(carte);
 
         });
@@ -87,7 +102,7 @@ function afficherMusiquesAlbum(albumId) {
 
             musiquesAlbum.innerHTML = "";
 
-            data.forEach(musique => {
+            data.forEach((musique, index) => {
 
                 // Copier notre carte
                 const carte = modeleMusique.content.firstElementChild.cloneNode(true);
@@ -98,10 +113,11 @@ function afficherMusiquesAlbum(albumId) {
                 carte.querySelector("p").textContent = musique.artist;
 
                 // Lancer la musique au clic
-                carte.addEventListener("click", () => {
+               carte.addEventListener("click", () => {
 
-                    lecteurAudio.src = musique.file_path;
-                    lecteurAudio.play();
+                    listeLecture = data;
+
+                    jouerMusique(index);
 
                 });
 
@@ -113,3 +129,40 @@ function afficherMusiquesAlbum(albumId) {
         });
 
 }
+
+
+
+// Bouton suivant
+boutonNext.addEventListener("click", () => {
+
+    if (listeLecture.length === 0) {
+        return;
+    }
+
+    musiqueActuelle += 1;
+
+    if (musiqueActuelle >= listeLecture.length) {
+        musiqueActuelle = 0;
+    }
+
+    jouerMusique(musiqueActuelle);
+
+});
+
+
+// Bouton précédent
+boutonPrevious.addEventListener("click", () => {
+
+    if (listeLecture.length === 0) {
+        return;
+    }
+
+    musiqueActuelle -= 1;
+
+    if (musiqueActuelle < 0) {
+        musiqueActuelle = listeLecture.length - 1;
+    }
+
+    jouerMusique(musiqueActuelle);
+
+});
