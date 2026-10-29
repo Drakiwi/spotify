@@ -138,6 +138,11 @@
                 <img src="asset/icons/next.svg" alt="Next" class="size-8">
             </button>
 
+            <!-- SHUFFLE -->
+            <button id="shuffle" class="cursor-pointer hover:scale-110 transition-transform">
+                <img src="asset/icons/shuffle.svg" alt="Shuffle" class="size-8">
+            </button>
+
         </div>
 
             <div class="flex justify-center items-center mt-4">

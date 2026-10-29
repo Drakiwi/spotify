@@ -7,7 +7,15 @@ const imagePlayPause = document.getElementById("imagePlayPause");
 const progression = document.getElementById("progression");
 const boutonPrecedent = document.getElementById("previous");
 const boutonSuivant = document.getElementById("next");
+const boutonShuffle = document.getElementById("shuffle");
 const volumeSlider = document.getElementById("volume");
+
+if (boutonShuffle) {
+    boutonShuffle.addEventListener("click", () => {
+        shuffleActif = !shuffleActif;
+        boutonShuffle.style.opacity = shuffleActif ? "1" : "0.5";
+    });
+}
 
 // === GESTION DU VOLUME ===
 if (volumeSlider) {
@@ -17,9 +25,15 @@ if (volumeSlider) {
 }
 
 // === NAVIGATION ENTRE LES MORCEAUX ===
+let shuffleActif = false;
+
 function morceauSuivant() {
     if (musiques.length === 0) return;
-    indexActuel = (indexActuel + 1) % musiques.length;
+    if (shuffleActif) {
+        indexActuel = Math.floor(Math.random() * musiques.length);
+    } else {
+        indexActuel = (indexActuel + 1) % musiques.length;
+    }
     lecteurAudio.src = musiques[indexActuel].file_path;
     lecteurAudio.play();
 }
