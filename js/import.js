@@ -2,6 +2,9 @@
 const selectAlbum = document.getElementById("selectAlbum");
 const formAlbum = document.getElementById("formAlbum");
 const statutAlbum = document.getElementById("statutAlbum");
+const formImport = document.getElementById("formImport");
+const statutImport = document.getElementById("statutImport");
+
 
 
 // Récupérer les albums depuis MySQL
@@ -75,6 +78,46 @@ formAlbum.addEventListener("submit", (event) => {
         console.error("Erreur :", error);
 
         statutAlbum.textContent = "Erreur lors de la création de l'album";
+
+    });
+
+});
+
+
+formImport.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
+    const formData = new FormData(formImport);
+
+    console.log("Album :", formData.get("album_id"));
+    console.log("Titre :", formData.get("title"));
+    console.log("Artiste :", formData.get("artist"));
+    console.log("Pochette :", formData.get("cover"));
+    console.log("Musique :", formData.get("audio"));
+
+    statutImport.textContent = "Formulaire récupéré !";
+
+});
+
+formImport.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
+    const formData = new FormData(formImport);
+
+    fetch("upload_song.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+
+        statutImport.textContent = data.message;
+
+        if (data.success) {
+            formImport.reset();
+        }
 
     });
 

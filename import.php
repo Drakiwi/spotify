@@ -17,7 +17,7 @@
         <nav class="bg-[#0D0D0C] flex justify-center">
             <div class="bg-[#242320] rounded-4xl p-5 w-full max-w-[800px] pt-4 mt-5 justify-between flex items-center">
                 <a href="index.php">
-                    <img src="asset/chercher.svg" alt="retour" class="size-7">
+                    <img src="asset/icons/arrow-left.svg" alt="retour" class="size-7">
                 </a>
                 <h1 class="text-white text-xl font-bold">Importer</h1>
                 <div class="w-7"></div>

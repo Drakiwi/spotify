@@ -19,12 +19,13 @@
     <!-- HEADER -->
     <header>
         <nav class="seach bg-[#0D0D0C] flex  justify-center  p-4  relative"> 
+            
             <a href="import.php" class="text-white bg-[#242320] right-40 absolute mt-2 text-2xl px-5 h-14 rounded-3xl flex items-center justify-center border-[#D8B875] border-1 cursor-pointer hover:bg-[#34332F] transition border-1 border-transparent hover:border-[#D8B875] transition-colors duration-300">
-                Import
+                <img src="asset/icons/import.svg" class="">
             </a>
 
             <div class="bg-[#242320] rounded-4xl p-5  w-full max-w-[800px] justify-center flex flex-col border-[#D8B875] border-0"> 
-                <img src="asset/chercher.svg" alt="search" class="size-7"> 
+                <img src="asset/icons/search.svg" alt="search" class="size-8"> 
             </div> 
         </nav>
 
@@ -58,7 +59,7 @@
         </section>
 
         <!-- SECTION DROITE HOME -->
-        <section id="home" class="bg-[#242320] flex-1 min-w-0 rounded-3xl p-5">
+        <section id="home" class="bg-[#242320] flex-1 min-w-0 rounded-3xl p-5 bg-linear-to-b from-[#5C4A2B] via-[#242320] to-[#242320] rounded-2xl via-20%">
 
             <h1 class="text-white text-4xl font-bold">
                 Accueil
@@ -95,22 +96,49 @@
 
         </section>
 
+        <!-- PAGE ALBUM -->
+        <section id="pageAlbum" class="hidden bg-[#242320] flex-1 min-w-0 rounded-3xl p-5" style="display: none;">
+
+            <button id="retourAccueil" class="text-white mb-5 cursor-pointer flex">
+                <img src="asset/icons/arrow-left.svg" alt=""> Retour
+            </button>
+
+            <h1 id="titreAlbum" class="text-white text-4xl font-bold">
+            </h1>
+
+            <!-- Les musiques de l'album seront affichées ici -->
+            <div id="musiquesAlbum" class="flex flex-wrap gap-5 mt-5">
+            </div>
+
+        </section>
+
     </main>
 
     <!-- FOOTER / LECTEUR AUDIO -->
     <footer>
         <section id="play" class="bg-[#0D0D0C] p-3">
 
-            <div class="flex justify-center items-center">
+            <div class="flex justify-center items-center gap-6">
 
-                <button id="boutonPlayPause">
-                    <img id="imagePlayPause"
-                        src="asset/jouer.svg"
-                        alt="Play / Pause"
-                        class="size-20 cursor-pointer">
-                </button>
+            <!-- PREVIOUS -->
+            <button id="previous" class="cursor-pointer hover:scale-110 transition-transform">
+                <img src="asset/icons/previous.svg" alt="Previous" class="size-8">
+            </button>
 
-            </div>
+            <!-- PLAY / PAUSE -->
+            <button id="boutonPlayPause" class="cursor-pointer hover:scale-110 transition-transform">
+                <img id="imagePlayPause"
+                    src="asset/play.svg"
+                    alt="Play / Pause"
+                    class="size-16">
+            </button>
+
+            <!-- NEXT -->
+            <button id="next" class="cursor-pointer hover:scale-110 transition-transform">
+                <img src="asset/icons/next.svg" alt="Next" class="size-8">
+            </button>
+
+        </div>
 
             <div class="flex justify-center items-center mt-4">
 

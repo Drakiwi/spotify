@@ -59,12 +59,12 @@ fetch("get_songs.php")
 
 // Quand la musique démarre
 lecteurAudio.addEventListener("play", () => {
-    imagePlayPause.src = "asset/pause.png";
+    imagePlayPause.src = "asset/pause.svg";
 });
 
 // Quand la musique est en pause
 lecteurAudio.addEventListener("pause", () => {
-    imagePlayPause.src = "asset/jouer.svg";
+    imagePlayPause.src = "asset/play.svg";
 });
 
 lecteurAudio.addEventListener("timeupdate", () => {
@@ -76,3 +76,40 @@ lecteurAudio.addEventListener("timeupdate", () => {
     }
 
 });
+
+const musiquesAlbum = document.getElementById("musiquesAlbum");
+
+function afficherMusiquesAlbum(albumId) {
+
+    fetch("get_songs.php?album_id=" + albumId)
+        .then(response => response.json())
+        .then(data => {
+
+            musiquesAlbum.innerHTML = "";
+
+            data.forEach(musique => {
+
+                // Copier notre carte
+                const carte = modeleMusique.content.firstElementChild.cloneNode(true);
+
+                // Remplir les informations
+                carte.querySelector("img").src = musique.cover_path;
+                carte.querySelector("h3").textContent = musique.title;
+                carte.querySelector("p").textContent = musique.artist;
+
+                // Lancer la musique au clic
+                carte.addEventListener("click", () => {
+
+                    lecteurAudio.src = musique.file_path;
+                    lecteurAudio.play();
+
+                });
+
+                // Ajouter la carte à la page album
+                musiquesAlbum.appendChild(carte);
+
+            });
+
+        });
+
+}
