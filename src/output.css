@@ -235,6 +235,10 @@
     width: calc(var(--spacing) * 3);
     height: calc(var(--spacing) * 3);
   }
+  .size-6 {
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
+  }
   .size-7 {
     width: calc(var(--spacing) * 7);
     height: calc(var(--spacing) * 7);
@@ -275,6 +279,9 @@
   }
   .w-44 {
     width: calc(var(--spacing) * 44);
+  }
+  .w-\[120px\] {
+    width: 120px;
   }
   .w-\[300px\] {
     width: 300px;

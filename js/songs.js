@@ -5,18 +5,41 @@ const lecteurAudio = document.getElementById("lecteurAudio");
 const boutonPlayPause = document.getElementById("boutonPlayPause");
 const imagePlayPause = document.getElementById("imagePlayPause");
 const progression = document.getElementById("progression");
+const boutonNext = document.getElementById("next");
+const boutonPrevious = document.getElementById("previous");
+const volumeSlider = document.getElementById("volume");
+const musiquesAlbum = document.getElementById("musiquesAlbum");
+
+let listeLecture = [];
+let musiqueActuelle = 0;
+
+
+// === JOUER UNE MUSIQUE ===
+
+function jouerMusique(index) {
+
+    musiqueActuelle = index;
+
+    lecteurAudio.src = listeLecture[musiqueActuelle].file_path;
+
+    lecteurAudio.play();
+
+}
+
+
+// === RÉCUPÉRER LES MUSIQUES ===
 
 fetch("get_songs.php")
     .then(response => response.json())
     .then(data => {
-        musiques = data;
+
         listeMusiques.innerHTML = "";
 
         data.forEach((musique, index) => {
 
             // On copie notre carte
             const carte = modeleMusique.content.firstElementChild.cloneNode(true);
- 
+
             // On remplit notre carte avec MySQL
             carte.querySelector("img").src = musique.cover_path;
 
@@ -24,52 +47,65 @@ fetch("get_songs.php")
 
             carte.querySelector("p").textContent = musique.artist;
 
+            // Quand on clique sur une musique
             carte.addEventListener("click", () => {
 
-    lecteurAudio.src = musique.file_path;
+                listeLecture = data;
 
-    lecteurAudio.play();
+                jouerMusique(index);
 
-});
+            });
+
             listeMusiques.appendChild(carte);
 
         });
 
     });
 
-    boutonPlayPause.addEventListener("click", () => {
 
-    console.log("Le bouton a été cliqué !");
+// === BOUTON PLAY / PAUSE ===
 
-    console.log("Musique :", lecteurAudio.getAttribute("src"));
+boutonPlayPause.addEventListener("click", () => {
+
+    if (!lecteurAudio.getAttribute("src")) {
+        return;
+    }
 
     if (lecteurAudio.paused) {
 
-     
         lecteurAudio.play();
 
     } else {
 
-        
         lecteurAudio.pause();
 
     }
 
 });
 
+
+// === CHANGEMENT IMAGE PLAY / PAUSE ===
+
 // Quand la musique démarre
 lecteurAudio.addEventListener("play", () => {
+
     imagePlayPause.src = "asset/pause.svg";
+
 });
 
 // Quand la musique est en pause
 lecteurAudio.addEventListener("pause", () => {
+
     imagePlayPause.src = "asset/play.svg";
+
 });
+
+
+// === BARRE DE PROGRESSION ===
 
 lecteurAudio.addEventListener("timeupdate", () => {
 
-    if (lecteurAudio.duration) {
+    if (lecteurAudio.duration && progression) {
 
         progression.value = (lecteurAudio.currentTime / lecteurAudio.duration) * 100;
 
@@ -77,13 +113,33 @@ lecteurAudio.addEventListener("timeupdate", () => {
 
 });
 
-const musiquesAlbum = document.getElementById("musiquesAlbum");
+
+// === GESTION DU VOLUME ===
+
+if (volumeSlider) {
+
+    lecteurAudio.volume = volumeSlider.value / 100;
+
+    volumeSlider.addEventListener("input", () => {
+
+        lecteurAudio.volume = volumeSlider.value / 100;
+
+    });
+
+}
+
+
+// === AFFICHER LES MUSIQUES D'UN ALBUM ===
 
 function afficherMusiquesAlbum(albumId) {
 
     fetch("get_songs.php?album_id=" + albumId)
         .then(response => response.json())
         .then(data => {
+
+            if (!musiquesAlbum) {
+                return;
+            }
 
             musiquesAlbum.innerHTML = "";
 
@@ -94,11 +150,13 @@ function afficherMusiquesAlbum(albumId) {
 
                 // Remplir les informations
                 carte.querySelector("img").src = musique.cover_path;
+
                 carte.querySelector("h3").textContent = musique.title;
+
                 carte.querySelector("p").textContent = musique.artist;
 
                 // Lancer la musique au clic
-               carte.addEventListener("click", () => {
+                carte.addEventListener("click", () => {
 
                     listeLecture = data;
 
@@ -116,8 +174,8 @@ function afficherMusiquesAlbum(albumId) {
 }
 
 
+// === BOUTON SUIVANT ===
 
-// Bouton suivant
 boutonNext.addEventListener("click", () => {
 
     if (listeLecture.length === 0) {
@@ -135,7 +193,8 @@ boutonNext.addEventListener("click", () => {
 });
 
 
-// Bouton précédent
+// === BOUTON PRÉCÉDENT ===
+
 boutonPrevious.addEventListener("click", () => {
 
     if (listeLecture.length === 0) {
