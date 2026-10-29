@@ -1,3 +1,4 @@
+// Fichier: get_albums.php
 <?php
 
 require_once "database.php";

@@ -1,3 +1,4 @@
+// Fichier: import.js
 
 const selectAlbum = document.getElementById("selectAlbum");
 const formAlbum = document.getElementById("formAlbum");

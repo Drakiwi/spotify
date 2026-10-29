@@ -1,3 +1,4 @@
+// Fichier: albums.js
 
 const listeAlbums = document.getElementById("listeAlbums");
 const modeleAlbum = document.getElementById("modeleAlbum");
@@ -71,3 +72,4 @@ retourAccueil.addEventListener("click", () => {
     sectionAccueil.style.display = "block";
 
 });
+

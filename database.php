@@ -1,3 +1,4 @@
+// Fichier: database.php
 <?php
 
 $host = "localhost";

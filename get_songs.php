@@ -1,3 +1,4 @@
+// Fichier: get_songs.php
 
 <?php
 
@@ -36,3 +37,4 @@ $songs = $request->fetchAll(PDO::FETCH_ASSOC);
 echo json_encode($songs);
 
 ?>
+
