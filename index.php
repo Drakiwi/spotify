@@ -1,4 +1,4 @@
-// Fichier: index.php
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -11,10 +11,12 @@
     <link rel="stylesheet" href="./src/output.css">
     <script src="./js/songs.js" defer></script>
     <script src="./js/albums.js" defer></script>
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="./style.css">
 
 </head>
 
-<body class="flex flex-col bg-[#0D0D0C] min-h-screen">
+<body class="flex flex-col bg-[#0D0D0C] h-screen overflow-hidden">
 
 
     <!-- HEADER -->
@@ -34,10 +36,10 @@
     </header>
 
     <!-- MAIN -->
-    <main class="flex w-full gap-3 p-3 flex-1">
+    <main class="flex w-full gap-3 p-3 flex-1 min-h-0 overflow-hidden custom-scrollbar " >
 
         <!-- SECTION GAUCHE -->
-        <section class="bg-[#242320] w-[300px] shrink-0 rounded-3xl p-3">
+        <section class="bg-[#242320] w-[300px] shrink-0 rounded-3xl p-3 overflow-y-auto">
 
             <h2 class="text-white text-xl font-bold mb-5">
                 Playlist
@@ -60,7 +62,7 @@
         </section>
 
         <!-- SECTION DROITE HOME -->
-        <section id="home" class="bg-[#242320] flex-1 min-w-0 rounded-3xl p-5 bg-linear-to-b from-[#5C4A2B] via-[#242320] to-[#242320] rounded-2xl via-20%">
+        <section id="home" class="bg-[#242320] flex-1 min-w-0 rounded-3xl p-5 bg-linear-to-b from-[#5C4A2B] via-[#242320] to-[#242320] via-20% overflow-y-auto">
 
             <h1 class="text-white text-4xl font-bold">
                 Accueil

@@ -1,4 +1,3 @@
-// Fichier: songs.js
 
 const listeMusiques = document.getElementById("listeMusiques");
 const modeleMusique = document.getElementById("modeleMusique");
@@ -6,109 +5,206 @@ const lecteurAudio = document.getElementById("lecteurAudio");
 const boutonPlayPause = document.getElementById("boutonPlayPause");
 const imagePlayPause = document.getElementById("imagePlayPause");
 const progression = document.getElementById("progression");
+
 const boutonPrecedent = document.getElementById("previous");
 const boutonSuivant = document.getElementById("next");
 const boutonShuffle = document.getElementById("shuffle");
 const volumeSlider = document.getElementById("volume");
 
-if (boutonShuffle) {
-    boutonShuffle.addEventListener("click", () => {
-        shuffleActif = !shuffleActif;
-        boutonShuffle.style.opacity = shuffleActif ? "1" : "0.5";
-    });
-}
+const musiquesAlbum = document.getElementById("musiquesAlbum");
 
-// === GESTION DU VOLUME ===
-if (volumeSlider) {
-    volumeSlider.addEventListener("input", () => {
-        lecteurAudio.volume = volumeSlider.value / 100;
-    });
-}
-
-// === NAVIGATION ENTRE LES MORCEAUX ===
+let listeLecture = [];
+let indexActuel = 0;
 let shuffleActif = false;
 
-function morceauSuivant() {
-    if (musiques.length === 0) return;
-    if (shuffleActif) {
-        indexActuel = Math.floor(Math.random() * musiques.length);
-    } else {
-        indexActuel = (indexActuel + 1) % musiques.length;
-    }
-    lecteurAudio.src = musiques[indexActuel].file_path;
-    lecteurAudio.play();
-}
-function morceauPrecedent() {
-    if (musiques.length === 0) return;
-    indexActuel = (indexActuel - 1 + musiques.length) % musiques.length;
-    lecteurAudio.src = musiques[indexActuel].file_path;
-    lecteurAudio.play();
-}
-if (boutonPrecedent) boutonPrecedent.addEventListener("click", morceauPrecedent);
-if (boutonSuivant) boutonSuivant.addEventListener("click", morceauSuivant);
 
-let musiques = [];
-let indexActuel = 0;
+// FONCTION POUR JOUER UNE MUSIQUE
+function jouerMusique(index) {
 
+    indexActuel = index;
+
+    lecteurAudio.src = listeLecture[indexActuel].file_path;
+
+    lecteurAudio.play();
+
+}
+
+
+// CHARGER LES MUSIQUES DE L'ACCUEIL
 fetch("get_songs.php")
     .then(response => response.json())
     .then(data => {
-        musiques = data;
+
         listeMusiques.innerHTML = "";
 
         data.forEach((musique, index) => {
 
-            // On copie notre carte
             const carte = modeleMusique.content.firstElementChild.cloneNode(true);
- 
-            // On remplit notre carte avec MySQL
+
             carte.querySelector("img").src = musique.cover_path;
-
             carte.querySelector("h3").textContent = musique.title;
-
             carte.querySelector("p").textContent = musique.artist;
 
             carte.addEventListener("click", () => {
-                indexActuel = index;
-                lecteurAudio.src = musique.file_path;
-                lecteurAudio.play();
+
+                listeLecture = data;
+
+                jouerMusique(index);
+
             });
+
             listeMusiques.appendChild(carte);
 
         });
 
+    })
+    .catch(error => {
+        console.error("Erreur chargement musiques :", error);
     });
 
-    boutonPlayPause.addEventListener("click", () => {
 
-    console.log("Le bouton a été cliqué !");
+// CHARGER LES MUSIQUES D'UN ALBUM
+function afficherMusiquesAlbum(albumId) {
 
-    console.log("Musique :", lecteurAudio.getAttribute("src"));
+    fetch("get_songs.php?album_id=" + albumId)
+        .then(response => response.json())
+        .then(data => {
+
+            musiquesAlbum.innerHTML = "";
+
+            data.forEach((musique, index) => {
+
+                const carte = modeleMusique.content.firstElementChild.cloneNode(true);
+
+                carte.querySelector("img").src = musique.cover_path;
+                carte.querySelector("h3").textContent = musique.title;
+                carte.querySelector("p").textContent = musique.artist;
+
+                carte.addEventListener("click", () => {
+
+                    listeLecture = data;
+
+                    jouerMusique(index);
+
+                });
+
+                musiquesAlbum.appendChild(carte);
+
+            });
+
+        })
+        .catch(error => {
+            console.error("Erreur chargement album :", error);
+        });
+
+}
+
+
+// BOUTON SUIVANT
+boutonSuivant.addEventListener("click", () => {
+
+    if (listeLecture.length === 0) {
+        return;
+    }
+
+    if (shuffleActif) {
+
+        indexActuel = Math.floor(Math.random() * listeLecture.length);
+
+    } else {
+
+        indexActuel += 1;
+
+        if (indexActuel >= listeLecture.length) {
+            indexActuel = 0;
+        }
+
+    }
+
+    jouerMusique(indexActuel);
+
+});
+
+
+// BOUTON PRÉCÉDENT
+boutonPrecedent.addEventListener("click", () => {
+
+    if (listeLecture.length === 0) {
+        return;
+    }
+
+    indexActuel -= 1;
+
+    if (indexActuel < 0) {
+        indexActuel = listeLecture.length - 1;
+    }
+
+    jouerMusique(indexActuel);
+
+});
+
+
+// BOUTON SHUFFLE
+boutonShuffle.style.opacity = "0.5";
+
+boutonShuffle.addEventListener("click", () => {
+
+    shuffleActif = !shuffleActif;
+
+    if (shuffleActif) {
+        boutonShuffle.style.opacity = "1";
+    } else {
+        boutonShuffle.style.opacity = "0.5";
+    }
+
+});
+
+
+// VOLUME
+volumeSlider.addEventListener("input", () => {
+
+    lecteurAudio.volume = volumeSlider.value / 100;
+
+});
+
+
+// PLAY / PAUSE
+boutonPlayPause.addEventListener("click", () => {
+
+    if (lecteurAudio.getAttribute("src") === null) {
+        return;
+    }
 
     if (lecteurAudio.paused) {
 
-     
         lecteurAudio.play();
 
     } else {
 
-        
         lecteurAudio.pause();
 
     }
 
 });
 
-// Quand la musique démarre
+
+// CHANGER L'ICÔNE QUAND LA MUSIQUE DÉMARRE
 lecteurAudio.addEventListener("play", () => {
+
     imagePlayPause.src = "asset/pause.svg";
+
 });
 
-// Quand la musique est en pause
+
+// CHANGER L'ICÔNE QUAND LA MUSIQUE EST EN PAUSE
 lecteurAudio.addEventListener("pause", () => {
+
     imagePlayPause.src = "asset/play.svg";
+
 });
 
+
+// ACTUALISER LA BARRE DE PROGRESSION
 lecteurAudio.addEventListener("timeupdate", () => {
 
     if (lecteurAudio.duration) {
@@ -119,39 +215,20 @@ lecteurAudio.addEventListener("timeupdate", () => {
 
 });
 
-const musiquesAlbum = document.getElementById("musiquesAlbum");
 
-function afficherMusiquesAlbum(albumId) {
+// AVANCER OU RECULER DANS LA MUSIQUE
+progression.addEventListener("input", () => {
 
-    fetch("get_songs.php?album_id=" + albumId)
-        .then(response => response.json())
-        .then(data => {
+    if (lecteurAudio.duration) {
 
-            musiquesAlbum.innerHTML = "";
+        lecteurAudio.currentTime = (progression.value / 100) * lecteurAudio.duration;
 
-            data.forEach(musique => {
+    }
 
-                // Copier notre carte
-                const carte = modeleMusique.content.firstElementChild.cloneNode(true);
+});
 
-                // Remplir les informations
-                carte.querySelector("img").src = musique.cover_path;
-                carte.querySelector("h3").textContent = musique.title;
-                carte.querySelector("p").textContent = musique.artist;
+lecteurAudio.addEventListener("ended", () => {
 
-                // Lancer la musique au clic
-                carte.addEventListener("click", () => {
+    boutonSuivant.click();
 
-                    lecteurAudio.src = musique.file_path;
-                    lecteurAudio.play();
-
-                });
-
-                // Ajouter la carte à la page album
-                musiquesAlbum.appendChild(carte);
-
-            });
-
-        });
-
-}
+});

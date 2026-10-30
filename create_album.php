@@ -1,4 +1,3 @@
-// Fichier: create_album.php
 
 <?php
 

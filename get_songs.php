@@ -1,4 +1,3 @@
-// Fichier: get_songs.php
 
 <?php
 
